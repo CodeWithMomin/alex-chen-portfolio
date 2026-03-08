@@ -70,7 +70,7 @@ export function HeroSection() {
                 <a href="#projects" className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold text-sm hover:shadow-[0_0_40px_hsl(24_100%_60%/0.25)] transition-all duration-300 hover:-translate-y-1 active:scale-95">
                   View My Work <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
                 </a>
-                <a href="#" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl glass-card text-foreground font-semibold text-sm transition-all duration-300 hover:-translate-y-1 active:scale-95 gradient-border">
+                <a href="/MominZahoor_Resume.pdf" download className="inline-flex items-center gap-2 px-8 py-4 rounded-xl glass-card text-foreground font-semibold text-sm transition-all duration-300 hover:-translate-y-1 active:scale-95 gradient-border">
                   Download Resume <Download size={16} />
                 </a>
               </div>

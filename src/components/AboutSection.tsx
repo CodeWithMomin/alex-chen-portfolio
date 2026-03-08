@@ -46,10 +46,10 @@ export function AboutSection() {
 
           <div>
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-lg leading-relaxed text-muted-foreground mb-5">
-              I'm a full stack developer passionate about building modern web applications and diving deep into <span className="text-foreground font-medium">data analytics & machine learning</span>.
+              Full Stack Developer skilled in building scalable web applications using <span className="text-foreground font-medium">Next.js, React.js, Node.js, Express.js, PostgreSQL, and MongoDB</span>. Experienced in creating responsive UI with Tailwind CSS and developing secure RESTful APIs.
             </motion.p>
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="text-lg leading-relaxed text-muted-foreground">
-              I work across the full stack — from <span className="text-foreground font-medium">React & Next.js</span> frontends to <span className="text-foreground font-medium">Node.js & Express</span> backends — and love turning ideas into polished, performant products.
+              Familiar with deployment, real-time features, and <span className="text-foreground font-medium">Machine Learning integration</span>. Passionate about writing clean code and building impactful, user-focused digital solutions.
             </motion.p>
           </div>
         </div>
