@@ -25,55 +25,47 @@ export function ContactSection() {
     }, 1000);
   };
 
-  return (
-    <section id="contact" className="py-24 px-6 bg-secondary/30" aria-label="Contact">
-      <div ref={ref} className="scroll-reveal max-w-2xl mx-auto">
-        <h2 className="font-mono font-bold text-3xl sm:text-4xl mb-12 text-center">
-          <span className="text-primary">{'// '}</span>Get In Touch
-        </h2>
+  const inputClass = "w-full px-5 py-3.5 rounded-xl bg-muted/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all duration-300";
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+  return (
+    <section id="contact" className="py-32 px-6 relative" aria-label="Contact">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/20 to-transparent" aria-hidden="true" />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/[0.03] blur-[100px]" aria-hidden="true" />
+
+      <div ref={ref} className="scroll-reveal max-w-xl mx-auto relative">
+        <p className="text-xs font-mono text-primary tracking-widest uppercase mb-3 text-center">Contact</p>
+        <h2 className="font-mono font-bold text-3xl sm:text-5xl mb-4 text-center tracking-tight">
+          Get In Touch
+        </h2>
+        <p className="text-muted-foreground text-center mb-12 text-sm">
+          Have a project in mind? Let's build something great together.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-4 glass-card rounded-2xl p-8">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">Name</label>
-            <input
-              id="name"
-              type="text"
-              required
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-              placeholder="Your name"
-            />
+            <label htmlFor="name" className="block text-xs font-mono text-muted-foreground mb-2 uppercase tracking-wider">Name</label>
+            <input id="name" type="text" required className={inputClass} placeholder="Your name" />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">Email</label>
-            <input
-              id="email"
-              type="email"
-              required
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-              placeholder="you@example.com"
-            />
+            <label htmlFor="email" className="block text-xs font-mono text-muted-foreground mb-2 uppercase tracking-wider">Email</label>
+            <input id="email" type="email" required className={inputClass} placeholder="you@example.com" />
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">Message</label>
-            <textarea
-              id="message"
-              required
-              rows={5}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
-              placeholder="Tell me about your project..."
-            />
+            <label htmlFor="message" className="block text-xs font-mono text-muted-foreground mb-2 uppercase tracking-wider">Message</label>
+            <textarea id="message" required rows={5} className={`${inputClass} resize-none`} placeholder="Tell me about your project..." />
           </div>
           <button
             type="submit"
             disabled={sending}
-            className="w-full inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_30px_hsl(186_100%_50%/0.4)] transition-all duration-300 disabled:opacity-50"
+            className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold text-sm hover:shadow-[0_0_40px_hsl(24_100%_60%/0.25)] transition-all duration-500 disabled:opacity-50 hover:-translate-y-0.5"
           >
-            {sending ? 'Sending...' : 'Send Message'} <Send size={18} />
+            {sending ? 'Sending...' : 'Send Message'} <Send size={16} />
           </button>
         </form>
 
         {/* Social links */}
-        <div className="flex justify-center gap-4 mt-12">
+        <div className="flex justify-center gap-3 mt-12">
           {socials.map(s => {
             const Icon = s.icon;
             return (
@@ -83,9 +75,9 @@ export function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_20px_hsl(186_100%_50%/0.2)] transition-all duration-300"
+                className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:shadow-[0_0_25px_hsl(24_100%_60%/0.1)] transition-all duration-500"
               >
-                <Icon size={20} />
+                <Icon size={18} />
               </a>
             );
           })}

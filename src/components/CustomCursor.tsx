@@ -11,7 +11,7 @@ export function CustomCursor() {
 
     setVisible(true);
 
-    const move = (e: MouseEvent) => setPos({ x: e.clientX - 10, y: e.clientY - 10 });
+    const move = (e: MouseEvent) => setPos({ x: e.clientX - 12, y: e.clientY - 12 });
     const over = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.closest('a, button, [role="button"], input, textarea')) {

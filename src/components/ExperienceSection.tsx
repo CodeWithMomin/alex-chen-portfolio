@@ -41,7 +41,7 @@ const entries = [
     org: 'University of Toronto',
     date: '2014 — 2018',
     points: [
-      'Dean\'s List all semesters, graduated with honors',
+      "Dean's List all semesters, graduated with honors",
       'Teaching assistant for Data Structures & Algorithms',
       'Capstone: distributed systems project on fault-tolerant consensus',
     ],
@@ -52,17 +52,18 @@ export function ExperienceSection() {
   const headerRef = useScrollReveal();
 
   return (
-    <section id="experience" className="py-24 px-6" aria-label="Experience">
+    <section id="experience" className="py-32 px-6" aria-label="Experience">
       <div className="max-w-3xl mx-auto">
-        <h2 ref={headerRef} className="scroll-reveal font-mono font-bold text-3xl sm:text-4xl mb-16 text-center">
-          <span className="text-primary">{'// '}</span>Experience
-        </h2>
+        <div ref={headerRef} className="scroll-reveal text-center mb-20">
+          <p className="text-xs font-mono text-primary tracking-widest uppercase mb-3">Journey</p>
+          <h2 className="font-mono font-bold text-3xl sm:text-5xl tracking-tight">Experience</h2>
+        </div>
 
         <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border" aria-hidden="true" />
+          {/* Vertical line with gradient */}
+          <div className="absolute left-[19px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-transparent" aria-hidden="true" />
 
-          <div className="space-y-12">
+          <div className="space-y-16">
             {entries.map((entry, i) => (
               <TimelineEntry key={i} entry={entry} index={i} />
             ))}
@@ -83,23 +84,32 @@ function TimelineEntry({ entry, index }: { entry: typeof entries[0]; index: numb
       className={`scroll-reveal relative flex items-start gap-8 ${
         isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
       } flex-row`}
+      style={{ transitionDelay: `${index * 100}ms` }}
     >
-      {/* Dot */}
-      <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-primary border-2 border-background -translate-x-1/2 mt-1.5 z-10" aria-hidden="true" />
+      {/* Dot with glow */}
+      <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 mt-1 z-10" aria-hidden="true">
+        <div className="w-[10px] h-[10px] rounded-full bg-primary shadow-[0_0_12px_hsl(24_100%_60%/0.5)]" />
+      </div>
 
       {/* Content */}
-      <div className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${isLeft ? 'md:text-right md:pr-8' : 'md:pl-8'}`}>
-        <div className="inline-flex items-center gap-2 text-primary mb-1">
-          {entry.type === 'work' ? <Briefcase size={16} /> : <GraduationCap size={16} />}
-          <span className="text-xs font-mono text-muted-foreground">{entry.date}</span>
+      <div className={`ml-12 md:ml-0 md:w-[calc(50%-2.5rem)] ${isLeft ? 'md:text-right md:pr-0' : 'md:pl-0'}`}>
+        <div className="glass-card rounded-xl p-6 hover:border-primary/20 transition-all duration-500">
+          <div className={`inline-flex items-center gap-2 mb-2 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+            {entry.type === 'work' ? (
+              <Briefcase size={14} className="text-primary" />
+            ) : (
+              <GraduationCap size={14} className="text-accent" />
+            )}
+            <span className="text-xs font-mono text-muted-foreground">{entry.date}</span>
+          </div>
+          <h3 className="font-mono font-bold text-foreground text-base mb-0.5">{entry.title}</h3>
+          <p className="text-primary text-sm font-semibold mb-4">{entry.org}</p>
+          <ul className={`space-y-2 text-sm text-muted-foreground ${isLeft ? 'md:text-right' : ''}`}>
+            {entry.points.map((p, j) => (
+              <li key={j} className="leading-relaxed">{p}</li>
+            ))}
+          </ul>
         </div>
-        <h3 className="font-mono font-bold text-foreground text-lg">{entry.title}</h3>
-        <p className="text-primary text-sm font-semibold mb-3">{entry.org}</p>
-        <ul className={`space-y-1.5 text-sm text-muted-foreground ${isLeft ? 'md:text-right' : ''}`}>
-          {entry.points.map((p, j) => (
-            <li key={j}>• {p}</li>
-          ))}
-        </ul>
       </div>
     </div>
   );

@@ -43,17 +43,21 @@ export function SkillsSection() {
   const ref = useScrollReveal();
 
   return (
-    <section id="skills" className="py-24 px-6 bg-secondary/30" aria-label="Skills">
-      <div ref={ref} className="scroll-reveal max-w-5xl mx-auto">
-        <h2 className="font-mono font-bold text-3xl sm:text-4xl mb-12 text-center">
-          <span className="text-primary">{'// '}</span>Skills
+    <section id="skills" className="py-32 px-6 relative" aria-label="Skills">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-transparent" aria-hidden="true" />
+
+      <div ref={ref} className="scroll-reveal max-w-5xl mx-auto relative">
+        <p className="text-xs font-mono text-primary tracking-widest uppercase mb-3 text-center">Expertise</p>
+        <h2 className="font-mono font-bold text-3xl sm:text-5xl mb-16 text-center tracking-tight">
+          Skills & Tools
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {skillCategories.map(cat => (
-            <div key={cat.category}>
-              <h3 className="font-mono font-semibold text-lg mb-5 text-primary">{cat.category}</h3>
-              <div className="space-y-4">
+            <div key={cat.category} className="glass-card rounded-2xl p-8">
+              <h3 className="font-mono font-semibold text-sm tracking-widest uppercase mb-6 text-primary">{cat.category}</h3>
+              <div className="space-y-5">
                 {cat.skills.map(skill => (
                   <SkillBar key={skill.name} name={skill.name} level={skill.level} />
                 ))}
@@ -71,13 +75,13 @@ function SkillBar({ name, level }: { name: string; level: number }) {
 
   return (
     <div ref={ref} className="scroll-reveal">
-      <div className="flex justify-between mb-1.5">
-        <span className="text-sm font-medium text-foreground">{name}</span>
+      <div className="flex justify-between mb-2">
+        <span className="text-sm font-medium text-foreground/80">{name}</span>
         <span className="text-xs text-muted-foreground font-mono">{level}%</span>
       </div>
-      <div className="h-2 rounded-full bg-muted overflow-hidden">
+      <div className="h-1.5 rounded-full bg-muted overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-primary to-primary/60 skill-bar-fill"
+          className="h-full rounded-full bg-gradient-to-r from-primary via-primary to-accent skill-bar-fill"
           style={{ width: `${level}%` }}
         />
       </div>
