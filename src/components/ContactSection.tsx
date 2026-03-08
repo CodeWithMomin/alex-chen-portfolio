@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, Mail, Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+
 
 const socials = [
   { icon: Github, label: 'GitHub', href: 'https://github.com/CodeWithMomin' },
@@ -11,17 +11,15 @@ const socials = [
 ];
 
 export function ContactSection() {
-  const { toast } = useToast();
-  const [sending, setSending] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast({ title: '✉️ Message sent!', description: "Thanks for reaching out. I'll get back to you soon." });
-      (e.target as HTMLFormElement).reset();
-    }, 800);
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.open(`mailto:mominzahoor11@gmail.com?subject=${subject}&body=${body}`, '_self');
   };
 
   const inputClass = "w-full px-5 py-3.5 rounded-xl bg-muted/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all duration-200";
@@ -40,18 +38,18 @@ export function ContactSection() {
         <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.5, delay: 0.1 }} className="space-y-4 glass-card rounded-2xl p-8">
           <div>
             <label htmlFor="name" className="block text-xs font-mono text-muted-foreground mb-2 uppercase tracking-wider">Name</label>
-            <input id="name" type="text" required className={inputClass} placeholder="Your name" />
+            <input id="name" type="text" required className={inputClass} placeholder="Your name" value={name} onChange={e => setName(e.target.value)} />
           </div>
           <div>
             <label htmlFor="email" className="block text-xs font-mono text-muted-foreground mb-2 uppercase tracking-wider">Email</label>
-            <input id="email" type="email" required className={inputClass} placeholder="you@example.com" />
+            <input id="email" type="email" required className={inputClass} placeholder="you@example.com" value={email} onChange={e => setEmail(e.target.value)} />
           </div>
           <div>
             <label htmlFor="message" className="block text-xs font-mono text-muted-foreground mb-2 uppercase tracking-wider">Message</label>
-            <textarea id="message" required rows={5} className={`${inputClass} resize-none`} placeholder="Tell me about your project..." />
+            <textarea id="message" required rows={5} className={`${inputClass} resize-none`} placeholder="Tell me about your project..." value={message} onChange={e => setMessage(e.target.value)} />
           </div>
-          <motion.button type="submit" disabled={sending} whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold text-sm hover:shadow-[0_0_35px_hsl(24_100%_60%/0.2)] transition-shadow duration-300 disabled:opacity-50">
-            {sending ? 'Sending...' : 'Send Message'} <Send size={16} />
+          <motion.button type="submit" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold text-sm hover:shadow-[0_0_35px_hsl(24_100%_60%/0.2)] transition-shadow duration-300">
+            Send Message <Send size={16} />
           </motion.button>
         </motion.form>
 
