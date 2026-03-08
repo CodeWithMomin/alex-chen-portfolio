@@ -100,18 +100,6 @@
   border-color: hsl(24 100% 60% / 0.4);
 }
 
-/* Scroll reveal animations */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Typewriter cursor blink */
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -162,6 +150,10 @@
   animation: marquee 30s linear infinite;
 }
 
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Skill bar fill */
 @keyframes fill-bar {
   from { width: 0; }
@@ -203,7 +195,7 @@
   mask-composite: exclude;
 }
 
-/* Spotlight gradient for hero */
+/* Spotlight */
 @keyframes spotlight {
   0%, 100% {
     opacity: 0.4;
@@ -228,4 +220,32 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 6s linear infinite;
+}
+
+/* Count up glow */
+@keyframes number-glow {
+  0%, 100% { text-shadow: 0 0 10px hsl(24 100% 60% / 0.3); }
+  50% { text-shadow: 0 0 20px hsl(24 100% 60% / 0.6); }
+}
+
+/* Orbit animation for about section */
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+/* Scroll indicator bounce */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* Magnetic button ripple */
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(4); opacity: 0; }
 }
