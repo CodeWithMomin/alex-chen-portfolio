@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const skillCategories = [
-  { category: 'Frontend', skills: [{ name: 'React / Next.js', level: 95 }, { name: 'TypeScript', level: 92 }, { name: 'CSS / Tailwind', level: 90 }, { name: 'Performance & A11y', level: 88 }] },
-  { category: 'Backend', skills: [{ name: 'Node.js', level: 90 }, { name: 'Python', level: 82 }, { name: 'PostgreSQL', level: 87 }, { name: 'GraphQL / REST', level: 88 }] },
-  { category: 'DevOps / Cloud', skills: [{ name: 'AWS (EC2, Lambda, S3)', level: 85 }, { name: 'Docker / K8s', level: 80 }, { name: 'CI/CD Pipelines', level: 88 }, { name: 'Terraform', level: 72 }] },
-  { category: 'Tools', skills: [{ name: 'Git / GitHub', level: 95 }, { name: 'Linux / Shell', level: 85 }, { name: 'Figma', level: 70 }, { name: 'Testing (Jest, Cypress)', level: 86 }] },
+  { category: 'Frontend', skills: [{ name: 'React.js / Next.js', level: 88 }, { name: 'TypeScript', level: 82 }, { name: 'Tailwind CSS / Bootstrap', level: 90 }, { name: 'Material UI', level: 78 }] },
+  { category: 'Backend', skills: [{ name: 'Node.js / Express.js', level: 85 }, { name: 'Python', level: 80 }, { name: 'PostgreSQL / MySQL', level: 82 }, { name: 'MongoDB', level: 78 }] },
+  { category: 'Data & ML', skills: [{ name: 'Pandas / NumPy', level: 80 }, { name: 'Matplotlib', level: 75 }, { name: 'Machine Learning', level: 72 }, { name: 'Data Analytics', level: 78 }] },
+  { category: 'Tools', skills: [{ name: 'GitHub', level: 88 }, { name: 'Figma', level: 75 }, { name: 'CI/CD Pipelines', level: 70 }, { name: 'Performance & A11y', level: 72 }] },
 ];
 
 export function SkillsSection() {
