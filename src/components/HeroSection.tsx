@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown, Download, ChevronDown } from 'lucide-react';
 
-const fullText = "Hi, I'm Alex Chen";
+const fullText = "Hi, I'm Momin Zahoor";
 
 export function HeroSection() {
   const [displayed, setDisplayed] = useState('');
@@ -23,7 +23,6 @@ export function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  // Memoize particles so they don't re-render
   const particles = useMemo(() =>
     Array.from({ length: 15 }).map((_, i) => ({
       id: i,
@@ -39,12 +38,9 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
       <div className="absolute inset-0" aria-hidden="true">
-        {/* Spotlights */}
         <div className="absolute w-[600px] h-[600px] rounded-full opacity-50" style={{ left: '15%', top: '10%', background: 'radial-gradient(circle, hsl(24 100% 60% / 0.07) 0%, transparent 70%)' }} />
         <div className="absolute w-[500px] h-[500px] rounded-full opacity-40" style={{ right: '10%', bottom: '20%', background: 'radial-gradient(circle, hsl(270 80% 65% / 0.05) 0%, transparent 70%)' }} />
-        {/* Grid */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `linear-gradient(hsl(var(--foreground) / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / 0.3) 1px, transparent 1px)`, backgroundSize: '80px 80px' }} />
-        {/* Particles */}
         {particles.map(p => (
           <div key={p.id} className="absolute rounded-full" style={{ width: p.size, height: p.size, left: p.left, top: p.top, background: p.color, animation: `float-particle ${p.duration} ease-in-out infinite`, animationDelay: p.delay }} />
         ))}
@@ -65,7 +61,7 @@ export function HeroSection() {
           {showContent && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
               <p className="text-lg sm:text-xl text-muted-foreground mb-12 font-sans max-w-xl mx-auto leading-relaxed">
-                Full Stack Developer · Open Source Enthusiast
+                Full Stack Developer
                 <br />
                 <span className="text-sm">Crafting performant web experiences with modern tools</span>
               </p>
@@ -80,7 +76,7 @@ export function HeroSection() {
               </div>
 
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-16 pt-8 border-t border-border/30">
-                {[{ value: '6+', label: 'Years Experience' }, { value: '50+', label: 'Projects Built' }, { value: '12K+', label: 'GitHub Stars' }].map((stat, i) => (
+                {[{ value: '1+', label: 'Year Experience' }, { value: '10+', label: 'Projects Built' }, { value: '3+', label: 'Technologies Mastered' }].map((stat, i) => (
                   <div key={i} className="text-center">
                     <div className="font-mono font-bold text-2xl text-primary">{stat.value}</div>
                     <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
@@ -92,7 +88,6 @@ export function HeroSection() {
         </AnimatePresence>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
           <ChevronDown size={20} className="text-muted-foreground" />

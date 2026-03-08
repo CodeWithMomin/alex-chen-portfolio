@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useThemeToggle } from '@/components/ThemeProvider';
@@ -34,7 +34,7 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="font-mono font-bold text-lg tracking-tight">
-          <span className="text-primary">alex</span>
+          <span className="text-primary">momin</span>
           <span className="text-muted-foreground">.dev</span>
         </a>
 
@@ -54,18 +54,10 @@ export function Navbar() {
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          <button
-            onClick={toggle}
-            className="p-2 text-muted-foreground hover:text-foreground"
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          >
+          <button onClick={toggle} className="p-2 text-muted-foreground hover:text-foreground" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button
-            className="text-foreground p-2"
-            onClick={() => setOpen(!open)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-          >
+          <button className="text-foreground p-2" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'}>
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -73,20 +65,10 @@ export function Navbar() {
 
       <AnimatePresence>
         {open && (
-          <motion.ul
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl px-6 py-4 space-y-1 overflow-hidden"
-          >
+          <motion.ul initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.25 }} className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl px-6 py-4 space-y-1 overflow-hidden">
             {links.map(l => (
               <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="block px-4 py-3 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
-                  onClick={() => setOpen(false)}
-                >
+                <a href={l.href} className="block px-4 py-3 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all" onClick={() => setOpen(false)}>
                   {l.label}
                 </a>
               </li>
