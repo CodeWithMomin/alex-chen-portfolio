@@ -1,4 +1,5 @@
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const projects = [
@@ -49,11 +50,20 @@ const projects = [
 export function ProjectsSection() {
   return (
     <section id="projects" className="py-32 px-6 relative" aria-label="Projects">
-      {/* Background accent */}
       <div className="absolute right-0 top-1/3 w-[500px] h-[500px] rounded-full bg-accent/[0.03] blur-[100px]" aria-hidden="true" />
 
       <div className="max-w-6xl mx-auto relative">
-        <SectionHeader />
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-xs font-mono text-primary tracking-widest uppercase mb-3">Portfolio</p>
+          <h2 className="font-mono font-bold text-3xl sm:text-5xl tracking-tight">Selected Work</h2>
+        </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((p, i) => (
             <ProjectCard key={i} project={p} index={i} />
@@ -64,24 +74,37 @@ export function ProjectsSection() {
   );
 }
 
-function SectionHeader() {
-  const ref = useScrollReveal();
-  return (
-    <div ref={ref} className="scroll-reveal mb-16 text-center">
-      <p className="text-xs font-mono text-primary tracking-widest uppercase mb-3">Portfolio</p>
-      <h2 className="font-mono font-bold text-3xl sm:text-5xl tracking-tight">Selected Work</h2>
-    </div>
-  );
-}
-
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
-  const ref = useScrollReveal();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 200, damping: 20 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 200, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   return (
-    <div
-      ref={ref}
-      className="scroll-reveal group relative rounded-2xl glass-card overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_hsl(24_100%_60%/0.15)]"
-      style={{ transitionDelay: `${index * 80}ms` }}
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformPerspective: 800 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative rounded-2xl glass-card overflow-hidden transition-shadow duration-500 hover:shadow-[0_20px_60px_-15px_hsl(24_100%_60%/0.15)] will-change-transform"
     >
       {/* Preview gradient area */}
       <div className={`h-44 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
@@ -91,9 +114,13 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             backgroundSize: '20px 20px',
           }}
         />
-        <span className="font-mono text-3xl font-bold text-foreground/20 group-hover:text-foreground/30 transition-all duration-500 group-hover:scale-110">
+        <motion.span
+          className="font-mono text-3xl font-bold text-foreground/20"
+          whileHover={{ scale: 1.2 }}
+          transition={{ duration: 0.4 }}
+        >
           {project.name.split(' ').map(w => w[0]).join('')}
-        </span>
+        </motion.span>
         {/* Hover arrow */}
         <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-foreground/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0">
           <ArrowUpRight size={14} className="text-foreground/60" />
@@ -113,22 +140,14 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         </div>
 
         <div className="flex gap-4 pt-2 border-t border-border/50">
-          <a
-            href="#"
-            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium"
-            aria-label={`View ${project.name} on GitHub`}
-          >
+          <a href="#" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium" aria-label={`View ${project.name} on GitHub`}>
             <Github size={14} /> Source
           </a>
-          <a
-            href="#"
-            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium"
-            aria-label={`View ${project.name} live demo`}
-          >
+          <a href="#" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium" aria-label={`View ${project.name} live demo`}>
             <ExternalLink size={14} /> Live Demo
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,4 +1,4 @@
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { motion } from 'framer-motion';
 
 const skillCategories = [
   {
@@ -40,29 +40,43 @@ const skillCategories = [
 ];
 
 export function SkillsSection() {
-  const ref = useScrollReveal();
-
   return (
     <section id="skills" className="py-32 px-6 relative" aria-label="Skills">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-transparent" aria-hidden="true" />
 
-      <div ref={ref} className="scroll-reveal max-w-5xl mx-auto relative">
-        <p className="text-xs font-mono text-primary tracking-widest uppercase mb-3 text-center">Expertise</p>
-        <h2 className="font-mono font-bold text-3xl sm:text-5xl mb-16 text-center tracking-tight">
-          Skills & Tools
-        </h2>
+      <div className="max-w-5xl mx-auto relative">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          className="text-xs font-mono text-primary tracking-widest uppercase mb-3 text-center"
+        >Expertise</motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ delay: 0.1 }}
+          className="font-mono font-bold text-3xl sm:text-5xl mb-16 text-center tracking-tight"
+        >Skills & Tools</motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {skillCategories.map(cat => (
-            <div key={cat.category} className="glass-card rounded-2xl p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {skillCategories.map((cat, catIdx) => (
+            <motion.div
+              key={cat.category}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, delay: catIdx * 0.15 }}
+              whileHover={{ y: -4 }}
+              className="glass-card rounded-2xl p-8 transition-shadow duration-500 hover:shadow-[0_10px_40px_-10px_hsl(24_100%_60%/0.1)]"
+            >
               <h3 className="font-mono font-semibold text-sm tracking-widest uppercase mb-6 text-primary">{cat.category}</h3>
               <div className="space-y-5">
-                {cat.skills.map(skill => (
-                  <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+                {cat.skills.map((skill, i) => (
+                  <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={catIdx * 0.15 + i * 0.1} />
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -70,21 +84,27 @@ export function SkillsSection() {
   );
 }
 
-function SkillBar({ name, level }: { name: string; level: number }) {
-  const ref = useScrollReveal(0.3);
-
+function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
   return (
-    <div ref={ref} className="scroll-reveal">
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+    >
       <div className="flex justify-between mb-2">
         <span className="text-sm font-medium text-foreground/80">{name}</span>
         <span className="text-xs text-muted-foreground font-mono">{level}%</span>
       </div>
       <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-primary via-primary to-accent skill-bar-fill"
-          style={{ width: `${level}%` }}
+        <motion.div
+          className="h-full rounded-full bg-gradient-to-r from-primary via-primary to-accent"
+          initial={{ width: 0 }}
+          whileInView={{ width: `${level}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: delay + 0.2, ease: [0.16, 1, 0.3, 1] }}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }

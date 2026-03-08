@@ -1,4 +1,4 @@
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap } from 'lucide-react';
 
 const entries = [
@@ -49,19 +49,30 @@ const entries = [
 ];
 
 export function ExperienceSection() {
-  const headerRef = useScrollReveal();
-
   return (
     <section id="experience" className="py-32 px-6" aria-label="Experience">
       <div className="max-w-3xl mx-auto">
-        <div ref={headerRef} className="scroll-reveal text-center mb-20">
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="text-xs font-mono text-primary tracking-widest uppercase mb-3">Journey</p>
           <h2 className="font-mono font-bold text-3xl sm:text-5xl tracking-tight">Experience</h2>
-        </div>
+        </motion.div>
 
         <div className="relative">
-          {/* Vertical line with gradient */}
-          <div className="absolute left-[19px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-transparent" aria-hidden="true" />
+          {/* Animated vertical line */}
+          <motion.div
+            className="absolute left-[19px] md:left-1/2 md:-translate-x-px top-0 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-transparent"
+            initial={{ height: 0 }}
+            whileInView={{ height: '100%' }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+            aria-hidden="true"
+          />
 
           <div className="space-y-16">
             {entries.map((entry, i) => (
@@ -75,25 +86,34 @@ export function ExperienceSection() {
 }
 
 function TimelineEntry({ entry, index }: { entry: typeof entries[0]; index: number }) {
-  const ref = useScrollReveal();
   const isLeft = index % 2 === 0;
 
   return (
-    <div
-      ref={ref}
-      className={`scroll-reveal relative flex items-start gap-8 ${
-        isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
-      } flex-row`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+    <motion.div
+      className={`relative flex items-start gap-8 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} flex-row`}
+      initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* Dot with glow */}
-      <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 mt-1 z-10" aria-hidden="true">
+      <motion.div
+        className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 mt-1 z-10"
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: index * 0.15 + 0.3, type: 'spring' }}
+        aria-hidden="true"
+      >
         <div className="w-[10px] h-[10px] rounded-full bg-primary shadow-[0_0_12px_hsl(24_100%_60%/0.5)]" />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className={`ml-12 md:ml-0 md:w-[calc(50%-2.5rem)] ${isLeft ? 'md:text-right md:pr-0' : 'md:pl-0'}`}>
-        <div className="glass-card rounded-xl p-6 hover:border-primary/20 transition-all duration-500">
+        <motion.div
+          className="glass-card rounded-xl p-6 hover:border-primary/20 transition-all duration-500 hover:shadow-[0_10px_40px_-10px_hsl(24_100%_60%/0.08)]"
+          whileHover={{ y: -4 }}
+        >
           <div className={`inline-flex items-center gap-2 mb-2 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
             {entry.type === 'work' ? (
               <Briefcase size={14} className="text-primary" />
@@ -109,8 +129,8 @@ function TimelineEntry({ entry, index }: { entry: typeof entries[0]; index: numb
               <li key={j} className="leading-relaxed">{p}</li>
             ))}
           </ul>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
