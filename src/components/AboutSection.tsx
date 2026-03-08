@@ -33,7 +33,7 @@ export function AboutSection() {
           <motion.div className="shrink-0" initial={{ opacity: 0, scale: 0.85, rotate: -3 }} whileInView={{ opacity: 1, scale: 1, rotate: 3 }} whileHover={{ rotate: 0, scale: 1.03 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6 }}>
             <div className="relative">
               <div className="w-52 h-52 rounded-2xl border border-border overflow-hidden bg-gradient-to-br from-primary/20 via-accent/10 to-muted glow-border flex items-center justify-center">
-                <span className="font-mono text-6xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">AC</span>
+                <span className="font-mono text-6xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">MZ</span>
               </div>
               <div className="absolute -bottom-3 -right-3 w-52 h-52 rounded-2xl border border-border/30 -z-10" />
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
@@ -46,7 +46,7 @@ export function AboutSection() {
 
           <div>
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-lg leading-relaxed text-muted-foreground mb-5">
-              I'm a full stack developer and Computer Science graduate passionate about building modern web applications and diving deep into <span className="text-foreground font-medium">data analytics & machine learning</span>.
+              I'm a full stack developer passionate about building modern web applications and diving deep into <span className="text-foreground font-medium">data analytics & machine learning</span>.
             </motion.p>
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="text-lg leading-relaxed text-muted-foreground">
               I work across the full stack — from <span className="text-foreground font-medium">React & Next.js</span> frontends to <span className="text-foreground font-medium">Node.js & Express</span> backends — and love turning ideas into polished, performant products.
