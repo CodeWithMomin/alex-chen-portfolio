@@ -1,19 +1,23 @@
 import { motion } from 'framer-motion';
-import { Code2, Database, Cloud, GitBranch, Terminal, Cpu, Globe, Boxes } from 'lucide-react';
+import { Code2, Database, GitBranch, Terminal, Globe, Boxes, BarChart3, Palette } from 'lucide-react';
 
 const techStack = [
-  { name: 'React', icon: Code2 },
-  { name: 'Node.js', icon: Terminal },
+  { name: 'React.js', icon: Code2 },
+  { name: 'Next.js', icon: Code2 },
   { name: 'TypeScript', icon: Code2 },
+  { name: 'Node.js', icon: Terminal },
+  { name: 'Express.js', icon: Terminal },
   { name: 'Python', icon: Terminal },
   { name: 'PostgreSQL', icon: Database },
-  { name: 'Docker', icon: Boxes },
-  { name: 'AWS', icon: Cloud },
-  { name: 'Git', icon: GitBranch },
-  { name: 'GraphQL', icon: Globe },
-  { name: 'Redis', icon: Cpu },
-  { name: 'Next.js', icon: Code2 },
-  { name: 'Tailwind', icon: Code2 },
+  { name: 'MongoDB', icon: Database },
+  { name: 'MySQL', icon: Database },
+  { name: 'Tailwind CSS', icon: Palette },
+  { name: 'Bootstrap', icon: Palette },
+  { name: 'Material UI', icon: Palette },
+  { name: 'Pandas', icon: BarChart3 },
+  { name: 'NumPy', icon: BarChart3 },
+  { name: 'GitHub', icon: GitBranch },
+  { name: 'Figma', icon: Palette },
 ];
 
 export function AboutSection() {
@@ -42,10 +46,10 @@ export function AboutSection() {
 
           <div>
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-lg leading-relaxed text-muted-foreground mb-5">
-              I'm a full stack developer with <span className="text-foreground font-medium">6+ years</span> of experience crafting performant, accessible web applications. I specialize in React ecosystems, cloud-native architectures, and turning complex problems into elegant solutions.
+              I'm a full stack developer and Computer Science graduate passionate about building modern web applications and diving deep into <span className="text-foreground font-medium">data analytics & machine learning</span>.
             </motion.p>
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="text-lg leading-relaxed text-muted-foreground">
-              When I'm not shipping code, you'll find me contributing to open source, writing technical articles, or experimenting with <span className="text-foreground font-medium">creative coding</span> and generative art.
+              I work across the full stack — from <span className="text-foreground font-medium">React & Next.js</span> frontends to <span className="text-foreground font-medium">Node.js & Express</span> backends — and love turning ideas into polished, performant products.
             </motion.p>
           </div>
         </div>

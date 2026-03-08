@@ -2,10 +2,9 @@ import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap } from 'lucide-react';
 
 const entries = [
-  { type: 'work' as const, title: 'Senior Full Stack Engineer', org: 'Vercel', date: 'Jan 2023 — Present', points: ['Lead development of internal tooling platform serving 200+ engineers', 'Reduced deploy times by 40% through infrastructure optimizations', 'Mentored 4 junior developers and led architecture review sessions'] },
-  { type: 'work' as const, title: 'Full Stack Developer', org: 'Stripe', date: 'Mar 2020 — Dec 2022', points: ['Built real-time payment analytics dashboard processing 1M+ events/day', 'Designed and shipped OAuth2 integration used by 500+ merchants', 'Contributed to open-source SDK with 12K+ GitHub stars'] },
-  { type: 'work' as const, title: 'Frontend Developer', org: 'Shopify', date: 'Jun 2018 — Feb 2020', points: ['Developed merchant-facing React components in the Polaris design system', 'Improved Lighthouse scores from 62 to 94 across key pages', 'Shipped A/B tested checkout flow that increased conversion by 8%'] },
-  { type: 'education' as const, title: 'B.Sc. Computer Science', org: 'University of Toronto', date: '2014 — 2018', points: ["Dean's List all semesters, graduated with honors", 'Teaching assistant for Data Structures & Algorithms', 'Capstone: distributed systems project on fault-tolerant consensus'] },
+  { type: 'work' as const, title: 'Full Stack Developer Intern', org: 'Hostelbirds', date: '2024 — Present', points: ['Building and maintaining full-stack features using React, Node.js, and databases', 'Collaborating with the team on product development and UI/UX improvements', 'Working with REST APIs and integrating third-party services'] },
+  { type: 'work' as const, title: 'Intern', org: 'Cognifyz', date: '2022', points: ['Gained hands-on experience with web development and data projects', 'Worked on real-world tasks involving data analysis and visualization', 'Strengthened skills in Python and data-driven problem solving'] },
+  { type: 'education' as const, title: 'B.Tech in Computer Science Engineering', org: 'Islamic University of Science and Technology', date: '2020 — 2024', points: ['Specialized in software development and data science', 'Built multiple full-stack projects and ML models during coursework', 'Strong foundation in algorithms, data structures, and system design'] },
 ];
 
 export function ExperienceSection() {
