@@ -3,12 +3,27 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const projects = [
-  { name: 'CloudSync Dashboard', description: 'Real-time infrastructure monitoring dashboard with WebSocket streams, alerting, and team collaboration.', tags: ['React', 'TypeScript', 'WebSocket', 'D3.js'], gradient: 'from-orange-500/10 via-rose-500/5 to-transparent', accent: 'text-orange-400' },
-  { name: 'DevFlow CLI', description: 'Open-source CLI tool for automating development workflows — scaffolding, linting, deployment pipelines.', tags: ['Node.js', 'TypeScript', 'Commander'], gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent', accent: 'text-emerald-400' },
-  { name: 'NoteGraph', description: 'Knowledge management app with bidirectional linking, graph visualization, and AI-powered search.', tags: ['Next.js', 'PostgreSQL', 'OpenAI', 'Prisma'], gradient: 'from-violet-500/10 via-purple-500/5 to-transparent', accent: 'text-violet-400' },
-  { name: 'PixelForge', description: 'Browser-based creative coding playground with real-time preview, GLSL shaders, and exportable artwork.', tags: ['React', 'WebGL', 'Canvas API'], gradient: 'from-pink-500/10 via-rose-500/5 to-transparent', accent: 'text-pink-400' },
-  { name: 'AuthShield', description: 'Authentication microservice with OAuth2, MFA support, rate limiting, and comprehensive audit logging.', tags: ['Go', 'Redis', 'PostgreSQL', 'Docker'], gradient: 'from-amber-500/10 via-yellow-500/5 to-transparent', accent: 'text-amber-400' },
-  { name: 'DataPipe', description: 'ETL pipeline framework for processing large-scale datasets with configurable transformations and scheduling.', tags: ['Python', 'Apache Kafka', 'AWS Lambda'], gradient: 'from-sky-500/10 via-blue-500/5 to-transparent', accent: 'text-sky-400' },
+  {
+    name: 'SkillShare Social',
+    description: 'A skill-sharing platform combining the best of LinkedIn and GitHub — users share their skills, projects, and connect with like-minded professionals.',
+    tags: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
+    gradient: 'from-violet-500/10 via-purple-500/5 to-transparent',
+    accent: 'text-violet-400',
+  },
+  {
+    name: 'Task Management App',
+    description: 'A full-featured task management application with project boards, task assignments, progress tracking, and team collaboration.',
+    tags: ['React.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    gradient: 'from-orange-500/10 via-rose-500/5 to-transparent',
+    accent: 'text-orange-400',
+  },
+  {
+    name: 'E-Commerce Web App',
+    description: 'A complete e-commerce platform with product listings, cart management, secure checkout, and order tracking functionality.',
+    tags: ['Next.js', 'TypeScript', 'MongoDB', 'Material UI'],
+    gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
+    accent: 'text-emerald-400',
+  },
 ];
 
 export function ProjectsSection() {
