@@ -4,10 +4,10 @@ import { Github, Linkedin, Twitter, Mail, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const socials = [
-  { icon: Github, label: 'GitHub', href: 'https://github.com' },
-  { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: Twitter, label: 'Twitter / X', href: 'https://x.com' },
-  { icon: Mail, label: 'Email', href: 'mailto:alex@example.com' },
+  { icon: Github, label: 'GitHub', href: 'https://github.com/CodeWithMomin' },
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mominzahoor11' },
+  { icon: Twitter, label: 'Twitter / X', href: 'https://x.com/_mominzahoor' },
+  { icon: Mail, label: 'Email', href: 'mailto:mominzahoor11@gmail.com' },
 ];
 
 export function ContactSection() {
