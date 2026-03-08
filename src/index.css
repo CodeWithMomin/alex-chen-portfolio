@@ -4,6 +4,47 @@
 
 @layer base {
   :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 93%;
+    --secondary-foreground: 240 10% 10%;
+
+    --muted: 240 5% 93%;
+    --muted-foreground: 240 5% 42%;
+
+    --accent: 270 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
+    --ring: 24 95% 53%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 97%;
+    --sidebar-foreground: 240 10% 10%;
+    --sidebar-primary: 24 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 93%;
+    --sidebar-accent-foreground: 240 10% 10%;
+    --sidebar-border: 240 6% 88%;
+    --sidebar-ring: 24 95% 53%;
+  }
+
+  .dark {
     --background: 240 15% 3%;
     --foreground: 0 0% 95%;
 
@@ -31,8 +72,6 @@
     --border: 240 10% 12%;
     --input: 240 10% 12%;
     --ring: 24 100% 60%;
-
-    --radius: 0.75rem;
 
     --sidebar-background: 240 12% 5%;
     --sidebar-foreground: 0 0% 95%;
@@ -75,8 +114,8 @@
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
@@ -90,8 +129,7 @@
   position: fixed;
   pointer-events: none;
   z-index: 99999;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background 0.2s ease;
-  backdrop-filter: blur(2px);
+  transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
 }
 
 .custom-cursor.hovering {
@@ -110,37 +148,21 @@
   animation: blink 1s step-end infinite;
 }
 
-/* Floating particles */
+/* Floating particles - simplified */
 @keyframes float-particle {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.1;
-  }
-  33% {
-    transform: translateY(-50px) translateX(25px);
-    opacity: 0.5;
-  }
-  66% {
-    transform: translateY(-20px) translateX(-15px);
-    opacity: 0.15;
-  }
+  0%, 100% { transform: translateY(0); opacity: 0.15; }
+  50% { transform: translateY(-30px); opacity: 0.4; }
 }
 
-/* Glow border animation */
+/* Glow border */
 @keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(24 100% 60% / 0.2), 0 0 60px hsl(270 80% 65% / 0.1);
-  }
-  50% {
-    box-shadow: 0 0 30px hsl(24 100% 60% / 0.4), 0 0 80px hsl(270 80% 65% / 0.15);
-  }
+  0%, 100% { box-shadow: 0 0 15px hsl(24 100% 60% / 0.15), 0 0 40px hsl(270 80% 65% / 0.05); }
+  50% { box-shadow: 0 0 25px hsl(24 100% 60% / 0.3), 0 0 60px hsl(270 80% 65% / 0.1); }
 }
 
-.glow-border {
-  animation: glow-pulse 3s ease-in-out infinite;
-}
+.glow-border { animation: glow-pulse 3s ease-in-out infinite; }
 
-/* Marquee animation */
+/* Marquee */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -148,37 +170,25 @@
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+  will-change: transform;
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
+.animate-marquee:hover { animation-play-state: paused; }
 
-/* Skill bar fill */
-@keyframes fill-bar {
-  from { width: 0; }
-}
-
-.skill-bar-fill {
-  animation: fill-bar 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Glass card effect */
+/* Glass card */
 .glass-card {
-  background: hsl(240 12% 6% / 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid hsl(240 10% 15% / 0.5);
+  background: hsl(var(--card) / 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.5);
 }
 
-/* Animated gradient border */
+/* Gradient border */
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
-.gradient-border {
-  position: relative;
-}
+.gradient-border { position: relative; }
 
 .gradient-border::before {
   content: '';
@@ -195,26 +205,14 @@
   mask-composite: exclude;
 }
 
-/* Spotlight */
-@keyframes spotlight {
-  0%, 100% {
-    opacity: 0.4;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-}
-
-/* Shimmer for text */
+/* Shimmer text */
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
 }
 
 .text-shimmer {
-  background: linear-gradient(90deg, hsl(0 0% 95%), hsl(24 100% 60%), hsl(270 80% 65%), hsl(0 0% 95%));
+  background: linear-gradient(90deg, hsl(var(--foreground)), hsl(24 100% 60%), hsl(270 80% 65%), hsl(var(--foreground)));
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -222,30 +220,10 @@
   animation: shimmer 6s linear infinite;
 }
 
-/* Count up glow */
-@keyframes number-glow {
-  0%, 100% { text-shadow: 0 0 10px hsl(24 100% 60% / 0.3); }
-  50% { text-shadow: 0 0 20px hsl(24 100% 60% / 0.6); }
-}
-
-/* Orbit animation for about section */
+/* Orbit */
 @keyframes orbit {
-  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+  0% { transform: rotate(0deg) translateX(110px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
 }
 
-.animate-orbit {
-  animation: orbit 20s linear infinite;
-}
-
-/* Scroll indicator bounce */
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); opacity: 0.5; }
-  50% { transform: translateY(8px); opacity: 1; }
-}
-
-/* Magnetic button ripple */
-@keyframes ripple {
-  0% { transform: scale(0); opacity: 0.6; }
-  100% { transform: scale(4); opacity: 0; }
-}
+.animate-orbit { animation: orbit 20s linear infinite; }
