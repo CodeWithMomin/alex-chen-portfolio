@@ -33,7 +33,7 @@ export function ProjectsSection() {
       <div className="max-w-6xl mx-auto relative">
         <motion.div className="mb-16 text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }}>
           <p className="text-xs font-mono text-primary tracking-widest uppercase mb-3">Portfolio</p>
-          <h2 className="font-mono font-bold text-3xl sm:text-5xl tracking-tight">Selected Work</h2>
+          <h2 className="font-mono font-bold text-3xl sm:text-5xl tracking-tight">Projects</h2>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((p, i) => <ProjectCard key={i} project={p} index={i} />)}
