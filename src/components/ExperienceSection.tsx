@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap } from 'lucide-react';
 
 const entries = [
-  { type: 'work' as const, title: 'Full Stack Developer Intern', org: 'Hostelbirds', date: '2024 — Present', points: ['Building and maintaining full-stack features using React, Node.js, and databases', 'Collaborating with the team on product development and UI/UX improvements', 'Working with REST APIs and integrating third-party services'] },
+  { type: 'work' as const, title: 'Full Stack Developer Intern', org: 'Hostelbird', date: '2024 — Present', points: ['Building and maintaining full-stack features using React, Node.js, and databases', 'Collaborating with the team on product development and UI/UX improvements', 'Working with REST APIs and integrating third-party services'] },
   { type: 'work' as const, title: 'Intern', org: 'Cognifyz', date: '2022', points: ['Gained hands-on experience with web development and data projects', 'Worked on real-world tasks involving data analysis and visualization', 'Strengthened skills in Python and data-driven problem solving'] },
   { type: 'education' as const, title: 'B.Tech in Computer Science Engineering', org: 'Islamic University of Science and Technology', date: '2020 — 2024', points: ['Specialized in software development and data science', 'Built multiple full-stack projects and ML models during coursework', 'Strong foundation in algorithms, data structures, and system design'] },
 ];
