@@ -11,7 +11,7 @@ import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="grain-overlay min-h-screen bg-background">
+    <div className="grain-overlay min-h-screen bg-background overflow-x-hidden">
       <CustomCursor />
       <Navbar />
       <main>
