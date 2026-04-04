@@ -5,19 +5,18 @@ const techStack = [
   { name: 'React.js', icon: Code2 },
   { name: 'Next.js', icon: Code2 },
   { name: 'TypeScript', icon: Code2 },
+  { name: 'JavaScript', icon: Code2 },
   { name: 'Node.js', icon: Terminal },
   { name: 'Express.js', icon: Terminal },
   { name: 'Python', icon: Terminal },
-  { name: 'PostgreSQL', icon: Database },
   { name: 'MongoDB', icon: Database },
-  { name: 'MySQL', icon: Database },
+  { name: 'PostgreSQL', icon: Database },
   { name: 'Tailwind CSS', icon: Palette },
-  { name: 'Bootstrap', icon: Palette },
+  { name: 'Shadcn UI', icon: Palette },
   { name: 'Material UI', icon: Palette },
-  { name: 'Pandas', icon: BarChart3 },
-  { name: 'NumPy', icon: BarChart3 },
-  { name: 'GitHub', icon: GitBranch },
-  { name: 'Figma', icon: Palette },
+  { name: 'Git / GitHub', icon: GitBranch },
+  { name: 'Postman', icon: Globe },
+  { name: 'Google Analytics', icon: BarChart3 },
 ];
 
 export function AboutSection() {
@@ -46,10 +45,10 @@ export function AboutSection() {
 
           <div>
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-lg leading-relaxed text-muted-foreground mb-5">
-              Full Stack Developer skilled in building scalable web applications using <span className="text-foreground font-medium">Next.js, React.js, Node.js, Express.js, PostgreSQL, and MongoDB</span>. Experienced in creating responsive UI with Tailwind CSS and developing secure RESTful APIs.
+              Full Stack Developer with hands-on experience in building scalable and high-performance web applications using <span className="text-foreground font-medium">Next.js, React.js, Node.js, Express.js, and MongoDB</span>. Proficient in developing responsive user interfaces with Tailwind CSS and designing secure RESTful APIs.
             </motion.p>
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="text-lg leading-relaxed text-muted-foreground">
-              Familiar with deployment, real-time features, and <span className="text-foreground font-medium">Machine Learning integration</span>. Passionate about writing clean code and building impactful, user-focused digital solutions.
+              Experienced in implementing real-time features, deployment workflows, and basic <span className="text-foreground font-medium">Machine Learning integrations</span>. Committed to writing clean, maintainable code and delivering user-centric digital solutions.
             </motion.p>
           </div>
         </div>

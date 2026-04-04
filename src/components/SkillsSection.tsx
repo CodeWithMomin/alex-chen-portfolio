@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const skillCategories = [
-  { category: 'Frontend', skills: [{ name: 'React.js / Next.js', level: 88 }, { name: 'TypeScript', level: 82 }, { name: 'Tailwind CSS / Bootstrap', level: 90 }, { name: 'Material UI', level: 78 }] },
-  { category: 'Backend', skills: [{ name: 'Node.js / Express.js', level: 85 }, { name: 'Python', level: 80 }, { name: 'PostgreSQL / MySQL', level: 82 }, { name: 'MongoDB', level: 78 }] },
-  { category: 'Data & ML', skills: [{ name: 'Pandas / NumPy', level: 80 }, { name: 'Matplotlib', level: 75 }, { name: 'Machine Learning', level: 72 }, { name: 'Data Analytics', level: 78 }] },
-  { category: 'Tools', skills: [{ name: 'GitHub', level: 88 }, { name: 'Figma', level: 75 }, { name: 'CI/CD Pipelines', level: 70 }, { name: 'Performance & A11y', level: 72 }] },
+  { category: 'Frontend', skills: [{ name: 'React.js / Next.js', level: 88 }, { name: 'JavaScript (ES6+) / TypeScript', level: 85 }, { name: 'Tailwind CSS / Shadcn UI', level: 90 }, { name: 'Material UI (MUI)', level: 78 }] },
+  { category: 'Backend', skills: [{ name: 'Node.js / Express.js', level: 85 }, { name: 'RESTful APIs', level: 82 }, { name: 'PostgreSQL / MongoDB', level: 80 }, { name: 'Python', level: 78 }] },
+  { category: 'Languages', skills: [{ name: 'JavaScript', level: 88 }, { name: 'TypeScript', level: 82 }, { name: 'Python', level: 78 }] },
+  { category: 'Tools', skills: [{ name: 'Git / GitHub', level: 88 }, { name: 'Postman', level: 80 }, { name: 'Google Analytics', level: 75 }, { name: 'Figma', level: 72 }] },
 ];
 
 export function SkillsSection() {

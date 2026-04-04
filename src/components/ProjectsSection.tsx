@@ -4,25 +4,25 @@ import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    name: 'SkillShare Social',
-    description: 'A skill-sharing platform combining the best of LinkedIn and GitHub — users share their skills, projects, and connect with like-minded professionals.',
+    name: 'E-Commerce Application',
+    description: 'A full-stack MERN e-commerce app with secure authentication, dynamic product listings, shopping cart, and checkout functionality — built with clean architecture and scalability in mind.',
     tags: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
-    gradient: 'from-violet-500/10 via-purple-500/5 to-transparent',
-    accent: 'text-violet-400',
+    gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
+    accent: 'text-emerald-400',
   },
   {
-    name: 'Task Management App',
-    description: 'A full-featured task management application with project boards, task assignments, progress tracking, and team collaboration.',
-    tags: ['React.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    name: 'Task Management',
+    description: 'A full-stack task management app enabling users to create, update, and manage tasks with prioritization and status tracking. Features secure auth, RESTful APIs, and responsive UI.',
+    tags: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
     gradient: 'from-orange-500/10 via-rose-500/5 to-transparent',
     accent: 'text-orange-400',
   },
   {
-    name: 'E-Commerce Web App',
-    description: 'A complete e-commerce platform with product listings, cart management, secure checkout, and order tracking functionality.',
-    tags: ['Next.js', 'TypeScript', 'MongoDB', 'Material UI'],
-    gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
-    accent: 'text-emerald-400',
+    name: 'Peerly',
+    description: 'A peer-to-peer collaboration platform with task management, secure authentication, RESTful APIs, and a responsive UI focused on performance and efficient state management.',
+    tags: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
+    gradient: 'from-violet-500/10 via-purple-500/5 to-transparent',
+    accent: 'text-violet-400',
   },
 ];
 

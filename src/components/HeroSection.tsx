@@ -38,8 +38,8 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute w-[600px] h-[600px] rounded-full opacity-50" style={{ left: '15%', top: '10%', background: 'radial-gradient(circle, hsl(24 100% 60% / 0.07) 0%, transparent 70%)' }} />
-        <div className="absolute w-[500px] h-[500px] rounded-full opacity-40" style={{ right: '10%', bottom: '20%', background: 'radial-gradient(circle, hsl(270 80% 65% / 0.05) 0%, transparent 70%)' }} />
+        <div className="absolute w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] rounded-full opacity-50" style={{ left: '15%', top: '10%', background: 'radial-gradient(circle, hsl(24 100% 60% / 0.07) 0%, transparent 70%)' }} />
+        <div className="absolute w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] rounded-full opacity-40" style={{ right: '10%', bottom: '20%', background: 'radial-gradient(circle, hsl(270 80% 65% / 0.05) 0%, transparent 70%)' }} />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `linear-gradient(hsl(var(--foreground) / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / 0.3) 1px, transparent 1px)`, backgroundSize: '80px 80px' }} />
         {particles.map(p => (
           <div key={p.id} className="absolute rounded-full" style={{ width: p.size, height: p.size, left: p.left, top: p.top, background: p.color, animation: `float-particle ${p.duration} ease-in-out infinite`, animationDelay: p.delay }} />
