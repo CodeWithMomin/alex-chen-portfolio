@@ -4,10 +4,12 @@ import { Code2, Database, GitBranch, Terminal, Globe, Boxes, BarChart3, Palette 
 const techStack = [
   { name: 'React.js', icon: Code2 },
   { name: 'Next.js', icon: Code2 },
+  { name: 'Redux', icon: Boxes },
   { name: 'TypeScript', icon: Code2 },
   { name: 'JavaScript', icon: Code2 },
   { name: 'Node.js', icon: Terminal },
   { name: 'Express.js', icon: Terminal },
+  { name: 'FastAPI', icon: Terminal },
   { name: 'Python', icon: Terminal },
   { name: 'MongoDB', icon: Database },
   { name: 'PostgreSQL', icon: Database },
