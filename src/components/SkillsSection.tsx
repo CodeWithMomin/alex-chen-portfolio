@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
 const skillCategories = [
-  { category: 'Frontend', skills: [{ name: 'React.js / Next.js', level: 88 }, { name: 'JavaScript (ES6+) / TypeScript', level: 85 }, { name: 'Tailwind CSS / Shadcn UI', level: 90 }, { name: 'Material UI (MUI)', level: 78 }] },
-  { category: 'Backend', skills: [{ name: 'Node.js / Express.js', level: 85 }, { name: 'RESTful APIs', level: 82 }, { name: 'PostgreSQL / MongoDB', level: 80 }, { name: 'Python', level: 78 }] },
+  { category: 'Frontend', skills: [{ name: 'React.js / Next.js', level: 88 }, { name: 'Redux', level: 80 }, { name: 'JavaScript (ES6+) / TypeScript', level: 85 }, { name: 'Tailwind CSS / Shadcn UI', level: 90 }, { name: 'Material UI (MUI)', level: 78 }] },
+  { category: 'Backend', skills: [{ name: 'Node.js / Express.js', level: 85 }, { name: 'FastAPI', level: 78 }, { name: 'RESTful APIs', level: 82 }, { name: 'PostgreSQL / MongoDB', level: 80 }, { name: 'Python', level: 78 }] },
   { category: 'Languages', skills: [{ name: 'JavaScript', level: 88 }, { name: 'TypeScript', level: 82 }, { name: 'Python', level: 78 }] },
   { category: 'Tools', skills: [{ name: 'Git / GitHub', level: 88 }, { name: 'Postman', level: 80 }, { name: 'Google Analytics', level: 75 }, { name: 'Figma', level: 72 }] },
 ];
