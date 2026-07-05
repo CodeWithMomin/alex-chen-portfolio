@@ -4,11 +4,13 @@ import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    name: 'E-Commerce Application',
-    description: 'A full-stack MERN e-commerce app with secure authentication, dynamic product listings, shopping cart, and checkout functionality — built with clean architecture and scalability in mind.',
-    tags: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
+    name: 'Grocify',
+    description: 'A modern grocery delivery web app built with React, TypeScript, and Vite. Features product browsing, filtering, cart management, checkout, order tracking, address management, and separate flows for admin and delivery partners.',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Neon DB', 'Prisma', 'Inngest'],
     gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
     accent: 'text-emerald-400',
+    github: 'https://github.com/CodeWithMomin/GroceryDelivary',
+    live: 'https://yourgrocify.vercel.app/',
   },
   {
     name: 'Task Management',
