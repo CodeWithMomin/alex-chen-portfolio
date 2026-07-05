@@ -4,11 +4,13 @@ import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    name: 'E-Commerce Application',
-    description: 'A full-stack MERN e-commerce app with secure authentication, dynamic product listings, shopping cart, and checkout functionality — built with clean architecture and scalability in mind.',
-    tags: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
+    name: 'Grocify',
+    description: 'A modern grocery delivery web app built with React, TypeScript, and Vite. Features product browsing, filtering, cart management, checkout, order tracking, address management, and separate flows for admin and delivery partners.',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Neon DB', 'Prisma', 'Inngest'],
     gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
     accent: 'text-emerald-400',
+    github: 'https://github.com/CodeWithMomin/GroceryDelivary',
+    live: 'https://yourgrocify.vercel.app/',
   },
   {
     name: 'Task Management',
@@ -84,8 +86,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           {project.tags.map(tag => <span key={tag} className="text-xs px-3 py-1 rounded-full bg-muted/80 text-muted-foreground font-medium">{tag}</span>)}
         </div>
         <div className="flex gap-4 pt-2 border-t border-border/50">
-          <a href="#" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium" aria-label={`View ${project.name} on GitHub`}><Github size={14} /> Source</a>
-          <a href="#" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium" aria-label={`View ${project.name} live demo`}><ExternalLink size={14} /> Live Demo</a>
+          <a href={project.github || '#'} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium" aria-label={`View ${project.name} on GitHub`}><Github size={14} /> Source</a>
+          <a href={project.live || '#'} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium" aria-label={`View ${project.name} live demo`}><ExternalLink size={14} /> Live Demo</a>
         </div>
       </div>
     </motion.div>
